@@ -1,7 +1,7 @@
-2002-02-23  Alexandre Oliva  <aoliva@redhat.com>
+2002-02-23  Daniel Jacobowitz  <drow@mvista.com>
 
-	* Makefile.in (MAKEINFO): Don't assume makeinfo will be built just
-	because its Makefile is there; test for the executable instead.
+	* config.guess: Import from master sources, rev 1.232.
+	* config.sub: Import from master sources, rev 1.246.
 
 2002-02-09  Alexandre Oliva  <aoliva@redhat.com>
 
