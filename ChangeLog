@@ -1,44 +1,7 @@
-2001-09-21  Alexandre Oliva  <aoliva@redhat.com>
+2001-09-26  Andrew Cagney  <ac131313@redhat.com>
 
-	* Makefile.in (AS_FOR_TARGET, LD_FOR_TARGET,
-	DLLTOOL_FOR_TARGET, WINDRES_FOR_TARGET, AR_FOR_TARGET,
-	RANLIB_FOR_TARGET, NM_FOR_TARGET): Don't use double quotes to
-	avoid quotes nesting problems.
-	(NATIVE_CHECK_MODULES): Ditto, just for consistency.
-	(DO_X): Export only variables that are set.
-
-2001-09-19  Ben Elliston  <bje@redhat.com>
-
-	* configure.in (sparc-sun-solaris2*): Don't use /usr/bin/which on
-	Solaris when testing for the /usr/ucb/cc compiler; it has incorrect
-	semantics.  Use the shell built-in "type" command instead.
-
-2001-09-15  Thiemo Seufer <seufer@csv.ica.uni-stuttgart.de>
-
-	* config.sub: Reverted the earlier change, this version is not the
-	master file.
-
-2001-09-14  Thiemo Seufer <seufer@csv.ica.uni-stuttgart.de>
-
-	* config.sub: Change machine triplets from mipsel*-* to mips*el-*.
-	Add support for mips64.
-
-2001-09-03  Jeff Holcomb  <jeffh@redhat.com>
-
-	* configure.in: Enable libstdc++-v3 for h8300 targets.
-
-2001-08-30  Eric Christopher  <echristo@redhat.com>
-	    Jason Eckhardt  <jle@redhat.com>
-
-	* config.sub: Add support for mipsisa32.
-
-2001-08-30  Eric Christopher  <echristo@redhat.com>
-
-	* config.sub, config.guess: Import latest from subversions.
-
-2001-08-20  Alan Modra  <amodra@bigpond.net.au>
-
-	* config.sub, config.guess: Import latest from subversions.
+	From 2001-08-22 D.J. Barrow <djbarrow@de.ibm.com>:
+	* config.sub: Added S/390 31 & 64 bit target.
 
 2001-07-26  DJ Delorie  <dj@redhat.com>
 
@@ -88,7 +51,7 @@ Fri Jun  8 11:14:02 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 2001-05-24  Tom Rix <trix@redhat.com>
 
 	* configure.in : enable ld for aix
-
+	
 2001-05-22  Alexandre Oliva  <aoliva@redhat.com>
 
 	* ltcf-cxx.sh (allow_undefined_flag, no_undefined_flag)
