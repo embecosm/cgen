@@ -1,19 +1,5 @@
 2002-06-19  Nathanael Nerode  <neroden@twcny.rr.com>
 
-	* configure.in: replace ${topsrcdir} with ${srcdir}
-
-	* configure.in: Move definition of libstdcxx_flags
-	right above usage, rather than waaay earlier.
-
-	* configure.in: Pull definition of is_cross_compiler earlier.
-
-	* configure.in: Rearrange a little.
-
-	* configure.in: Remove references to librx.
-	* Makefile.in: Remove references to librx.
-
-2002-06-19  Nathanael Nerode  <neroden@twcny.rr.com>
-
 	* configure.in: Eliminate ${gasdir} variable.
 
 2002-06-18  Dave Brolley  <brolley@redhat.com>
