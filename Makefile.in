@@ -2581,7 +2581,7 @@ configure-build-fixincludes:
 	libsrcdir="$$s/fixincludes"; \
 	rm -f no-such-file || : ; \
 	CONFIG_SITE=no-such-file $(SHELL) $${libsrcdir}/configure \
-	  $(BUILD_CONFIGARGS) $${srcdiroption} --target=$(target) \
+	  $(BUILD_CONFIGARGS) $${srcdiroption}  \
 	  || exit 1
 @endif build-fixincludes
 

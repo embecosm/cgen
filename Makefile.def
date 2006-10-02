@@ -31,7 +31,7 @@ build_modules= { module= flex; };
 build_modules= { module= m4; };
 build_modules= { module= texinfo; };
 build_modules= { module= fixincludes;
-		 extra_configure_flags='--target=$(target)'; };
+		 extra_configure_args='--target=$(target)'; };
 
 host_modules= { module= ash; };
 host_modules= { module= autoconf; };
