@@ -251,21 +251,10 @@ PWD_COMMAND = $${PWDCMD-pwd}
 
 # compilers to use to create programs which must be run in the build
 # environment.
-AR_FOR_BUILD = @AR_FOR_BUILD@
-AS_FOR_BUILD = @AS_FOR_BUILD@
 CC_FOR_BUILD = @CC_FOR_BUILD@
 CFLAGS_FOR_BUILD = @CFLAGS_FOR_BUILD@
-CXXFLAGS_FOR_BUILD = @CXXFLAGS_FOR_BUILD@
-CXX_FOR_BUILD = @CXX_FOR_BUILD@
-DLLTOOL_FOR_BUILD = @DLLTOOL_FOR_BUILD@
-GCJ_FOR_BUILD = @GCJ_FOR_BUILD@
-GFORTRAN_FOR_BUILD = @GFORTRAN_FOR_BUILD@
-LDFLAGS_FOR_BUILD = @LDFLAGS_FOR_BUILD@
-LD_FOR_BUILD = @LD_FOR_BUILD@
-NM_FOR_BUILD = @NM_FOR_BUILD@
-RANLIB_FOR_BUILD = @RANLIB_FOR_BUILD@
-WINDMC_FOR_BUILD = @WINDMC_FOR_BUILD@
-WINDRES_FOR_BUILD = @WINDRES_FOR_BUILD@
+
+CXX_FOR_BUILD = $(CXX)
 
 # Special variables passed down in EXTRA_GCC_FLAGS.  They are defined
 # here so that they can be overridden by Makefile fragments.
@@ -51499,17 +51488,15 @@ configure-stageb3g2-mpfr: maybe-all-stageb3g2-gmp
 configure-stage4-mpfr: maybe-all-stage4-gmp
 configure-stageprofile-mpfr: maybe-all-stageprofile-gmp
 configure-stagefeedback-mpfr: maybe-all-stagefeedback-gmp
-configure-gdb: maybe-configure-intl
+configure-gdb: maybe-all-intl
 configure-gdb: maybe-configure-sim
 configure-gdb: maybe-all-bfd
-all-gdb: maybe-all-intl
 all-gdb: maybe-all-libiberty
 all-gdb: maybe-all-opcodes
 all-gdb: maybe-all-readline
 all-gdb: maybe-all-build-bison
 all-gdb: maybe-all-build-byacc
 all-gdb: maybe-all-sim
-all-gdb: maybe-all-libdecnumber
 configure-libgui: maybe-configure-tcl
 configure-libgui: maybe-configure-tk
 all-libgui: maybe-all-tcl
@@ -51893,7 +51880,6 @@ configure-target-libobjc: maybe-configure-target-boehm-gc
 all-target-libobjc: maybe-all-target-libiberty
 all-target-libobjc: maybe-all-target-boehm-gc
 all-target-libstdc++-v3: maybe-all-target-libiberty
-configure-target-libstdc++-v3: maybe-configure-target-libgomp
 all-target-libgloss: maybe-configure-target-newlib
 all-target-winsup: maybe-all-target-libiberty
 all-target-winsup: maybe-all-target-libtermcap
