@@ -1,5 +1,6 @@
 ; Top level file for reading and recording .cpu file contents.
 ; Copyright (C) 2000, 2001, 2006 Red Hat, Inc.
+; Copyright (C) 2007 Free Software Foundation.
 ; This file is part of CGEN.
 ; See file COPYING.CGEN for details.
 
@@ -431,6 +432,10 @@
 (define (keep-mach-validate!)
   (let ((mach-names (cons 'all (current-arch-mach-name-list)))
 	(keep-mach (reader-keep-mach CURRENT-READER)))
+;(display (string-append "mach names:"))
+;(write mach-names) (newline)
+;(display (string-append "keep-mach:"))
+;(write keep-mach) (newline)
     (for-each (lambda (mach)
 		(if (not (memq mach mach-names))
 		    (error "unknown mach to keep:" mach)))

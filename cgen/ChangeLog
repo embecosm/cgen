@@ -1,22 +1,23 @@
-2009-02-18  Pierre Muller  <muller@ics.u-strasbg.fr>
+2009-03-09  J"orn Rennecke  <joern.rennecke@arc.com>
 
-	* opc-itab.scm (<>_cgen_init_opcode_table): Avoid compiler warning
-	about calling memset with a zero length.
+	* opc-itab.scm (CGEN_INIT_PRINT): Update comment to reflect it is
+	used now.
 
-2009-02-03  DJ Delorie  <dj@redhat.com>
+	* opc-itab.scm (CGEN_DIS_HASH, dis_hash_insn): New argument big_p.
+	* cpu/ip2k.opc (CGEN_DIS_HASH): New argument big_p.
+	* cpu/sparc.opc, cpu/xc16x.opc, cpu/fr30.opc, cpu/mep.opc: Likewise.
+	* cpu/m32r.opc, cpu/i960.opc, cpu/sh.opc, cpu/iq2000.opc: Likewise.
+	* cpu/openrisc.opc, cpu/xstormy16.opc: Likewise.
+	* cpu/arc.opc: Likewise.
 
-	* cpu/mep-core.cpu: Update to new MeP configuration.
-	* cpu/mep-ext-cop.cpu: Likewise.
-	* cpu/mep.opc: Likewise.
+	Add ARCompact support (sim):
+	* cpu/ARCompact.cpu, cpu/arc.opc, cpu/arc.cpu: New files.
 
-2008-12-23  Frank Ch. Eigler  <fche@redhat.com>
-
-	* sim.scm (-op-gen-queued-write): Add needed symbol->string.
-
-2008-06-17  Dave Brolley  <brolley@redhat.com>
-
-	* cpu/xstormy16.cpu (h-pc): Add a set handler.
-	(h-gr): Likewise.
+	makeshift debug code:
+	* read.scm (keep-mach-validate!): Add debug output - commented out.
+	* sim-cpu.scm (cgen-cpu.h): Likewise.
+	* utils-sim.scm (gen-decoder): Likewise.
+	(-gen-decoder-switch): Experimental code (commented out).
 
 2007-11-13  Dave Brolley  <brolley@redhat.com>
 

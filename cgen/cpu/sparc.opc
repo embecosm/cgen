@@ -24,7 +24,7 @@
 #define CGEN_DIS_HASH_SIZE 256
 #undef  CGEN_DIS_HASH
 extern const unsigned int sparc_cgen_opcode_bits[];
-#define CGEN_DIS_HASH(buffer, insn) \
+#define CGEN_DIS_HASH(buffer, insn, big_p) \
   ((((insn) >> 24) & 0xc0) \
    | (((insn) & sparc_cgen_opcode_bits[((insn) >> 30) & 3]) >> 19))
 

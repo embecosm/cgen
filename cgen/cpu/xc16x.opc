@@ -41,7 +41,8 @@
 /* -- opc.h */
 
 #define CGEN_DIS_HASH_SIZE 8
-#define CGEN_DIS_HASH(buf,value) (((* (unsigned char*) (buf)) >> 3) % CGEN_DIS_HASH_SIZE)
+#define CGEN_DIS_HASH(buf, value, big_p) \
+  (((* (unsigned char*) (buf)) >> 3) % CGEN_DIS_HASH_SIZE)
 
 /* -- */
 

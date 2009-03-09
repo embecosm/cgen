@@ -1,5 +1,6 @@
 ; Opcode table support.
 ; Copyright (C) 2000, 2005 Red Hat, Inc.
+; Copyright (C) 2007 Free Software Foundation, Inc.
 ; This file is part of CGEN.
 
 ; Append code here to be run before insn parsing/etc.
@@ -12,7 +13,7 @@
 (define print-init-code "")
 
 ; Define CGEN_INIT_{PARSE,INSERT,EXTRACT,PRINT} macros.
-; ??? These were early escape hatches.  Not currently used.
+; ??? These were early escape hatches.  Only CGEN_INIT_PRINT is currently used.
 
 (define (-gen-init-macros)
   (logit 2 "Generating init macros ...\n")
@@ -441,7 +442,7 @@ dis_hash_insn_p (insn)
 
 #ifndef CGEN_DIS_HASH
 #define CGEN_DIS_HASH_SIZE 256
-#define CGEN_DIS_HASH(buf, value) (*(unsigned char *) (buf))
+#define CGEN_DIS_HASH(buf, value, big_p) (*(unsigned char *) (buf))
 #endif
 
 /* The result is the hash value of the insn.
@@ -458,11 +459,12 @@ asm_hash_insn (mnem)
    VALUE is the first base_insn_bitsize bits as an int in host order.  */
 
 static unsigned int
-dis_hash_insn (buf, value)
+dis_hash_insn (buf, value, big_p)
      const char * buf ATTRIBUTE_UNUSED;
      CGEN_INSN_INT value ATTRIBUTE_UNUSED;
+     int big_p ATTRIBUTE_UNUSED;
 {
-  return CGEN_DIS_HASH (buf, value);
+  return CGEN_DIS_HASH (buf, value, big_p);
 }
 \n"
    )
@@ -479,7 +481,7 @@ dis_hash_insn (buf, value)
 static int asm_hash_insn_p        (const CGEN_INSN *);
 static unsigned int asm_hash_insn (const char *);
 static int dis_hash_insn_p        (const CGEN_INSN *);
-static unsigned int dis_hash_insn (const char *, CGEN_INSN_INT);
+static unsigned int dis_hash_insn (const char *, CGEN_INSN_INT, int);
 \n"
    )
 )
@@ -645,10 +647,7 @@ void
   const CGEN_OPCODE *oc = & @arch@_cgen_macro_insn_opcode_table[0];
   CGEN_INSN *insns = xmalloc (num_macros * sizeof (CGEN_INSN));
 
-  /* This test has been added to avoid a warning generated
-     if memset is called with a third argument of value zero.  */
-  if (num_macros >= 1)
-    memset (insns, 0, num_macros * sizeof (CGEN_INSN));
+  memset (insns, 0, num_macros * sizeof (CGEN_INSN));
   for (i = 0; i < num_macros; ++i)
     {
       insns[i].base = &ib[i];

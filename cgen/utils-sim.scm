@@ -1,5 +1,6 @@
 ; Generic simulator application utilities.
 ; Copyright (C) 2000, 2005, 2006 Red Hat, Inc.
+; Copyright (C) 2007 Free Software Foundation, Inc.
 ; This file is part of CGEN.
 ; See file COPYING.CGEN for details.
 
@@ -952,6 +953,7 @@
    indent "{\n"
    ; Are we at the next word?
    (if (not (= startbit (dtable-guts-startbit table-guts)))
+   ;(if (not (= 0 1))
        (begin
 	 (set! startbit (dtable-guts-startbit table-guts))
 	 (set! decode-bitsize (dtable-guts-bitsize table-guts))
@@ -1026,6 +1028,8 @@
 
     ; Now print it out.
 
+    ;(write "size:")
+    ;(write (dtable-guts-bitsize table-guts)) (newline)
     (-gen-decoder-switch "0" 0 decode-bitsize table-guts indent lsb0?
 			 invalid-insn fn?)
     )

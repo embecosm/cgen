@@ -25,7 +25,7 @@
 /* We can't use the default hash size because many bits are used by
    operands.  */
 #define CGEN_DIS_HASH_SIZE 1
-#define CGEN_DIS_HASH(buf, value) 0
+#define CGEN_DIS_HASH(buf, value, big_p) 0
 /* -- */
 
 /* -- asm.c */

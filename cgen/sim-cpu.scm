@@ -1,5 +1,6 @@
 ; CPU family related simulator generator, excluding decoding and model support.
 ; Copyright (C) 2000, 2001 Red Hat, Inc.
+; Copyright (C) 2007 Free Software Foundation, Inc.
 ; This file is part of CGEN.
 
 ; Notes:
@@ -801,6 +802,7 @@ SEM_FN_NAME (@prefix@,init_idesc_table) (SIM_CPU *current_cpu)
 
 (define (cgen-cpu.h)
   (logit 1 "Generating " (gen-cpu-name) " cpu.h ...\n")
+  ;(logit 1 "with-parallel:" (with-parallel?) "with-generic-write?:" (with-generic-write?) "\n")
 
   (sim-analyze-insns!)
 

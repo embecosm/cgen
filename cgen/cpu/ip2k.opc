@@ -23,7 +23,7 @@
 /* Override disassembly hashing - there are variable bits in the top
    byte of these instructions.  */
 #define CGEN_DIS_HASH_SIZE 8
-#define CGEN_DIS_HASH(buf, value) \
+#define CGEN_DIS_HASH(buf, value, big_p) \
   (((* (unsigned char*) (buf)) >> 5) % CGEN_DIS_HASH_SIZE)
 
 #define CGEN_ASM_HASH_SIZE 127
