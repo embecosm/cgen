@@ -1,5 +1,5 @@
 ; Routines for instruction semantic analysis (including rtx-simplify).
-; Copyright (C) 2000 Red Hat, Inc.
+; Copyright (C) 2000, 2009 Red Hat, Inc.
 ; This file is part of CGEN.
 ; See file COPYING.CGEN for details.
 
