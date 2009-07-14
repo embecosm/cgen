@@ -175,8 +175,7 @@
 (dni add "add"
      ()
      "add $dr,$sr"
-     ; Use (f-op1 OP1_4) to exercise it.
-     (+ (f-op1 OP1_4) OP2_0 dr sr)
+     (+ OP1_4 OP2_0 dr sr)
      (sequence ()
 	       (set vbit (add-oflag dr sr (const 0)))
 	       (set cbit (add-cflag dr sr (const 0)))
