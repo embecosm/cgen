@@ -1,3 +1,8 @@
+2016-03-02  Alan Modra  <amodra@gmail.com>
+
+	* enum.scm (gen-enum-decl): Emit large numbers as hex.  Tidy
+	start-sanitize.  Upcase just the identifiers.
+
 2014-05-19  Peter Gavin  <pgavin@gmail.com>
 
         * sim-arch.scm (WI, UWI, AI, IAI): Define.
