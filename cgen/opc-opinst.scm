@@ -117,8 +117,7 @@
 /* Function to call before using the operand instance table.  */
 
 void
-@arch@_cgen_init_opinst_table (cd)
-     CGEN_CPU_DESC cd;
+@arch@_cgen_init_opinst_table (CGEN_CPU_DESC cd)
 {
   int i;
   const CGEN_OPINST **oi = & @arch@_cgen_opinst_table[0];

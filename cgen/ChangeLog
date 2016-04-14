@@ -1,3 +1,11 @@
+2016-04-14  Trevor Saunders  <tbsaunde@tbsaunde.org>
+
+	* opc-itab.scm (asm_hash_insn_p): Stop using old style arguments.
+	(dis_hash_insn_p): Likewise.
+	(asm_hash_insn): Likewise.
+	(dis_hash_insn): Likewise.
+	* opc-opinst.scm (@arch@_cgen_init_opinst_table): Likewise.
+
 2016-03-02  Alan Modra  <amodra@gmail.com>
 
 	* enum.scm (gen-enum-decl): Emit large numbers as hex.  Tidy
