@@ -1,3 +1,7 @@
+2016-04-22  Alan Modra  <amodra@gmail.com>
+
+	* utils.scm: Update emitted copyright dates.
+
 2016-04-14  Trevor Saunders  <tbsaunde@tbsaunde.org>
 
 	* opc-itab.scm (asm_hash_insn_p): Stop using old style arguments.
