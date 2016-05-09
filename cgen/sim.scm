@@ -1265,7 +1265,7 @@
 ; operand instance table].
 ; Could just scan the operand table for the operand or hardware number,
 ; assuming the operand number is stored in `op'.
-   "    TRACE_RESULT (current_cpu, abuf"
+   "    CGEN_TRACE_RESULT (current_cpu, abuf"
    ", " (send op 'gen-pretty-name mode)
    ", " (mode:printf-type mode)
    ", opval);\n"
@@ -1292,7 +1292,7 @@
 ; operand instance table].
 ; Could just scan the operand table for the operand or hardware number,
 ; assuming the operand number is stored in `op'.
-   "    TRACE_RESULT (current_cpu, abuf"
+   "    CGEN_TRACE_RESULT (current_cpu, abuf"
    ", " (send op 'gen-pretty-name mode)
    ", " (mode:printf-type mode)
    ", opval);\n"
@@ -1464,7 +1464,7 @@
   (string-append
    (string-map (lambda (mach)
 		 (gen-obj-sanitize mach
-				   (string-append "extern const MACH "
+				   (string-append "extern const SIM_MACH "
 						  (gen-sym mach)
 						  "_mach;\n")))
 	       (current-mach-list))
@@ -1475,7 +1475,7 @@
 
 (define (/gen-mach-data)
   (string-append
-   "const MACH *sim_machs[] =\n{\n"
+   "const SIM_MACH *sim_machs[] =\n{\n"
    (string-map (lambda (mach)
 		 (gen-obj-sanitize
 		  mach

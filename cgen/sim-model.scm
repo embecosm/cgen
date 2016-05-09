@@ -16,7 +16,7 @@
    "\
 /* The properties of this cpu's implementation.  */
 
-static const MACH_IMP_PROPERTIES @cpu@_imp_properties =
+static const SIM_MACH_IMP_PROPERTIES @cpu@_imp_properties =
 {
   sizeof (SIM_CPU),
 #if WITH_SCACHE
@@ -249,7 +249,7 @@ static const MACH_IMP_PROPERTIES @cpu@_imp_properties =
 (define (/gen-mach-model-table mach)
   (string-list
    "\
-static const MODEL " (gen-sym mach) "_models[] =\n{\n"
+static const SIM_MODEL " (gen-sym mach) "_models[] =\n{\n"
    (string-list-map (lambda (model)
 		      (string-list "  { "
 				   "\"" (obj:str-name model) "\", "
@@ -343,7 +343,7 @@ static void\n"
 #endif
 }
 
-const MACH " (gen-sym mach) "_mach =
+const SIM_MACH " (gen-sym mach) "_mach =
 {
   \"" (obj:str-name mach) "\", "
   "\"" (mach-bfd-name mach) "\", "

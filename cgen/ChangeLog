@@ -1,3 +1,15 @@
+2016-05-09  Stafford Horne  <shorne@gmail.com>
+
+	* cgen/sim-cpu.scm (cgen-semantics.c, cgen-sem-switch.c): Rename
+	TRACE_RESULT to CGEN_TRACE_RESULT.
+	* cgen/sim-model.scm (gen-cpu-imp-properties): Rename
+	SIM_MACH_IMP_PROPERTIES to SIM_MACH_IMP_PROPERTIES.
+	(gen-mach-model-table): Rename MODEL to SIM_MODEL.
+	(gen-mach-defns): Rename MACH to SIM_MACH.
+	* cgen/sim.scm (op-gen-set-trace, op-gen-set-trace-parallel): Rename
+	TRACE_RESULT to CGEN_TRACE_RESULT.
+	(gen-mach-decls, gen-mach-data): Rename MACH to SIM_MACH.
+
 2016-04-22  Alan Modra  <amodra@gmail.com>
 
 	* utils.scm: Update emitted copyright dates.
