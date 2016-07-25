@@ -701,12 +701,20 @@ void
 #ifndef @ARCH@_OPC_H
 #define @ARCH@_OPC_H
 
+#ifdef __cplusplus
+extern \"C\" {
+#endif
+
 "
    (lambda () (gen-extra-opc.h (opc-file-path) (current-arch-name)))
    /gen-insn-enum
    /gen-ifield-decls
    /gen-init-macros
    "
+
+   #ifdef __cplusplus
+   }
+   #endif
 
 #endif /* @ARCH@_OPC_H */
 "

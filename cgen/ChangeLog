@@ -1,3 +1,8 @@
+2016-07-18  Trevor Saunders <tbsaunde@tbsaunde.org>
+
+	* desc-cpu.scm, opc-itab.sbm: Emit extern "C" { ... } wrappers to
+	make generated code usable by C++.
+
 2016-05-09  Stafford Horne  <shorne@gmail.com>
 
 	* cgen/sim-cpu.scm (cgen-semantics.c, cgen-sem-switch.c): Rename

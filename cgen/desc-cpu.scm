@@ -964,6 +964,10 @@ init_tables (void)
 #ifndef @ARCH@_CPU_H
 #define @ARCH@_CPU_H
 
+#ifdef __cplusplus
+extern \"C\" {
+#endif
+
 "
    /gen-hash-defines
    ; This is defined in arch.h.  It's not defined here as there is yet to
@@ -1003,6 +1007,10 @@ init_tables (void)
 	 (gen-extra-cpu.h (opc-file-path) (current-arch-name))
 	 ""))
    "
+
+   #ifdef __cplusplus
+   }
+   #endif
 
 #endif /* @ARCH@_CPU_H */
 "
