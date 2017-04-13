@@ -1,3 +1,11 @@
+2017-04-13  Alan Modra  <amodra@gmail.com>
+
+	PR 20946
+	* desc-cpu.scm (lookup_mach_via_bfd_name): Return NULL if the name
+	could not be matched.
+	(@arch@_cgen_cpu_open): Allow for lookup_mach_via_bfd_name returning
+	NULL.
+
 2017-04-08  Alan Modra  <amodra@gmail.com>
 
 	* utils.scm: Update emitted copyright dates.
