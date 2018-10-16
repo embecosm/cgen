@@ -1,3 +1,8 @@
+2018-10-06  Edward Jones  <ed.jones@embecosm.com>
+
+	* decode.scm (decode-get-best-bits): Remove any bits beyond
+	startbit+decode-bitsize from the bits to be considered as 'best'.
+
 2017-04-13  Alan Modra  <amodra@gmail.com>
 
 	PR 20946

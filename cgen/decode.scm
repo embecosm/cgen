@@ -394,17 +394,17 @@
 ; Also, see preceding FIXME: We can't proceed past startbit + decode-bitsize
 ; until we've processed all bits up to startbit + decode-bitsize.
 
-(define (decode-get-best-bits insn-list already-used startbit max decode-bitsize lsb0?)
+(define (decode-get-best-bits insn-list already-used startbit maxn decode-bitsize lsb0?)
   (let* ((raw-population (/distinguishing-bit-population (map insn-base-mask insn-list)
 							 (map insn-base-mask-length insn-list)
 							 (map insn-value insn-list)
 							 lsb0?))
-	 ;; (undecoded (if lsb0?
-	 ;; 		(/range2 startbit (+ startbit decode-bitsize))
-	 ;;		(/range2 (- startbit decode-bitsize) startbit)))
-	 (used+undecoded already-used) ; (append already-used undecoded))
+	 ; undecoded are all of the bits beyond start-bit + decode-bitsize
+	 (max-base-mask-len (apply max (map insn-base-mask-length insn-list)))
+	 (undecoded (/range2 (+ startbit decode-bitsize) (- max-base-mask-len (+ startbit decode-bitsize))))
+	 (used+undecoded (append already-used undecoded))
 	 (filtered-population (/vector-copy-set-all raw-population used+undecoded #f))
-	 (favorite-indices (/population-top-few filtered-population max))
+	 (favorite-indices (/population-top-few filtered-population maxn))
 	 (sorted-indices (sort favorite-indices (lambda (a b) 
 						  (if lsb0? (> a b) (< a b))))))
     (logit 3
