@@ -1029,9 +1029,9 @@
 	 ;; FIXME: Bits may get fetched again during extraction.
 	   (string-append indent "  unsigned int val;\n"
 			  indent "  /* Must fetch more bits.  */\n"
-			  indent "  insn = "
+			  indent "  insn |= "
 			  (gen-ifetch "pc" startbit decode-bitsize)
-			  ";\n"
+			  " << " (number->string startbit) ";\n"
 			  indent "  val = "))
 	 (string-append indent "  unsigned int val = "))
      (/gen-decode-bits (dtable-guts-bitnums table-guts)
