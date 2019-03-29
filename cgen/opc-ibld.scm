@@ -311,6 +311,8 @@ void
   (string-write
    ; No need for copyright, appended to file with one.
    "\n"
+   (lambda () (gen-extra-ibld.c (opc-file-path) (current-arch-name)))
+   "\n"
    /gen-insert-switch
    /gen-extract-switch
    (lambda () (gen-handler-table "insert" opc-insert-handlers))
