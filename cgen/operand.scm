@@ -645,7 +645,7 @@
 	      hw ;; note that this is the hw's name, not an object
 	      mode ;; ditto, this is a name, not an object
 	      hw-index
-	      (parse-handlers context '(parse print) handlers)
+	      (parse-handlers context '(parse print extract) handlers)
 	      (/operand-parse-getter context getter (if scalar? 0 1))
 	      (/operand-parse-setter context setter (if scalar? 0 1))
 	      )))

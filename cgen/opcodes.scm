@@ -171,7 +171,10 @@
  (lambda (self operand)
    (let* ((decode (elm-get self 'decode))
 	  (need-extra? decode) ; use to also handle operand's `extract' field
-	  (varname (gen-operand-result-var self)))
+	  (varname (gen-operand-result-var self))
+	  (operand-extract-function-name (send operand 'gen-function-name 'extract)))
+
+     
      (string-append
       (if need-extra?
 	  (string-append "      {\n        "
@@ -179,7 +182,9 @@
 			 " value;\n  ")
 	  "")
       "      length = "
-      (ifld-extract-fn-name self)
+      (if operand-extract-function-name
+	  operand-extract-function-name
+	  (ifld-extract-fn-name self))
       " (cd, ex_info, insn_value, "
       ; We explicitly pass the attributes here rather than look them up
       ; to give the code more optimization opportunities.
