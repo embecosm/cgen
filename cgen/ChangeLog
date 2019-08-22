@@ -1,3 +1,9 @@
+2019-08-22  Edward Jones  <ed.jones@embecosm.com>
+
+	* desc-cpu.scm (cgen-desc.c): When generating the *-desc.c
+	file, use the provided prefix as the prefix for the header
+	files, not the architecture name.
+
 2018-10-07  Edward Jones  <ed.jones@embecosm.com>
 
 	* utils-sim.scm (gen-decoder-switch): When fetching more bits,
