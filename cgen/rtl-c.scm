@@ -755,6 +755,46 @@
 			 ")")))
 )
 
+; Three operands referenced in the same mode producing a result in the same
+; mode.
+; MODE is the mode name.
+
+(define (s-terop estate name c-op mode src1 src2 src3)
+  ;(display (list "terop " name ", mode " mode)) (newline)
+  (let* ((val1 (rtl-c-get estate mode src1))
+	 ; Refetch mode in case it was DFLT and ensure unsigned->signed.
+	 (mode (mode:lookup mode)) ;;(cx:mode val1)) ;; FIXME: can't get DFLT anymore
+	 (sem-mode (rtx-sem-mode mode))
+	 (val2 (rtl-c-get estate mode src2))
+	 (val3 (rtl-c-get estate mode src3)))
+    ; FIXME: Argument checking.
+
+    (if (/rtx-use-sem-fn? estate c-op mode)
+	(if (mode-float? mode)
+	    (cx:make sem-mode
+		     (string-append "CGEN_CPU_FPU (current_cpu)->ops->"
+				    (string-downcase name)
+				    (string-downcase (obj:str-name sem-mode))
+				    " (CGEN_CPU_FPU (current_cpu), "
+				    (cx:c val1) ", "
+				    (cx:c val2) ", "
+				    (cx:c val3) ")"))
+	    (cx:make sem-mode
+		     (string-append name (obj:str-name sem-mode)
+				    " (" (cx:c val1) ", "
+				    (cx:c val2) ", "
+				    (cx:c val3) ")")))
+	(cx:make mode ; not sem-mode on purpose
+		 (string-append "(("
+				(cx:c val1)
+				") " c-op " ("
+				(cx:c val2)
+				") " c-op " ("
+				(cx:c val3)
+				"))"))))
+)
+
+
 ; Shift operations are slightly different than binary operations:
 ; the mode of src2 is any integral mode.
 ; MODE is the mode name.
@@ -1772,6 +1812,9 @@
 
 (define-fn sqrt (*estate* options mode s1)
   (s-unop *estate* "SQRT" #f mode s1)
+)
+(define-fn muladd (*estate* options mode s1 s2 s3)
+  (s-terop *estate* "MULADD" #f mode s1 s2 s3)
 )
 (define-fn cos (*estate* options mode s1)
   (s-unop *estate* "COS" #f mode s1)

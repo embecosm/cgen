@@ -815,6 +815,13 @@
      #f
 )
 
+(drn (muladd &options &mode s1 s2 s3)
+     #f
+     (OPTIONS ANYFLOATMODE RTX RTX RTX) (NA NA MATCHEXPR MATCH2 MATCH3)
+     TRINARY
+     #f
+)
+
 (drn (cos &options &mode s1)
      #f
      (OPTIONS ANYFLOATMODE RTX) (NA NA MATCHEXPR)
