@@ -1102,7 +1102,7 @@
        (string-drop1
 	(string-upcase
 	 (string-map (lambda (x)
-		       (string-append "|(1<<"
+		       (string-append "|(1ll<<"
 				      (gen-sym self)
 				      "_" (gen-c-symbol x) ")"))
 		     value))))
@@ -1123,7 +1123,7 @@
 	 (string-drop1
 	  (string-upcase
 	   (string-map (lambda (x)
-			 (string-append "|(1<<"
+			 (string-append "|(1ll<<"
 					(gen-sym self)
 					"_" (gen-c-symbol x) ")"))
 		       value)))

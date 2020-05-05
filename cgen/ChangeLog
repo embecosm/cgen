@@ -1,3 +1,10 @@
+2020-05-05  Edward Jones  <ed.jones@embecosm.com>
+
+	* attr.scm (gen-value-for-defn-raw)
+	(gen-value-for-defn): Use a "long long" immediate when
+	defining bits in a bitset. This allows for the largest
+	number of values to fit in the field.
+
 2019-08-22  Edward Jones  <ed.jones@embecosm.com>
 
 	* desc-cpu.scm (cgen-desc.c): When generating the *-desc.c
